@@ -1,6 +1,6 @@
 <template>
   <div>
-    footer
+    Ant Design Vue ©2020 Created by dewey
   </div>
 </template>
 
