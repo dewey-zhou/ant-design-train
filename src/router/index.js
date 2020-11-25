@@ -9,9 +9,9 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/user",
-    // component: { render: h => h("router-view") },
+    hideInMenu: true,
     component: () =>
-      import(/* webpackChunkName: "layout" */ "../layouts/UserLayout.vue"),
+      import(/* webpackChunkName: "layout" */ "../layouts/UserLayout"),
     children: [
       {
         path: "/user",
@@ -21,13 +21,13 @@ const routes = [
         path: "/user/login",
         name: "login",
         component: () =>
-          import(/* webpackChunkName: "user" */ "../views/User/Login.vue")
+          import(/* webpackChunkName: "user" */ "../views/User/Login")
       },
       {
         path: "/user/register",
         name: "register",
         component: () =>
-          import(/* webpackChunkName: "user" */ "../views/User/Register.vue")
+          import(/* webpackChunkName: "user" */ "../views/User/Register")
       }
     ]
   },
@@ -44,11 +44,13 @@ const routes = [
       {
         path: "/dashboard",
         name: "dashboard",
+        meta: { icon: "dashboard", title: "仪表盘" },
         component: { render: h => h("router-view") },
         children: [
           {
             path: "/dashboard/analysis",
             name: "analysis",
+            meta: { title: "分析页" },
             component: () =>
               import(
                 /* webpackChunkName: "dashboard" */ "../views/Dashboard/Analysis"
@@ -61,20 +63,22 @@ const routes = [
         path: "/form",
         name: "form",
         component: { render: h => h("router-view") },
+        meta: { icon: "form", title: "表单" },
         children: [
           {
             path: "/form/basic-form",
             name: "basicform",
+            meta: { title: "基础表单" },
             component: () =>
               import(/* webpackChunkName: "form" */ "../views/Forms/BasicForm")
           },
           {
             path: "/form/step-form",
             name: "stepform",
+            hideChildrenInMenu: true,
+            meta: { title: "分布表单" },
             component: () =>
-              import(
-                /* webpackChunkName: "form" */ "../views/Forms/BasicForm.vue"
-              ),
+              import(/* webpackChunkName: "form" */ "../views/Forms/StepForm"),
             children: [
               {
                 path: "/form/step-form",
@@ -110,10 +114,10 @@ const routes = [
       }
     ]
   },
-
   {
     path: "*",
     name: "404",
+    hideInMenu: true,
     component: NotFound
   }
 ];
