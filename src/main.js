@@ -7,6 +7,8 @@ import store from "./store";
 import { Button, Layout, Icon, Drawer, Radio, Menu } from "ant-design-vue";
 // import "ant-design-vue/dist/antd.less";
 // import "ant-design-vue/lib/button/style";
+import Authorized from "./components/Authorized";
+import Auth from "./directives/auth";
 Vue.config.productionTip = false;
 
 Vue.use(Button);
@@ -15,6 +17,8 @@ Vue.use(Icon);
 Vue.use(Drawer);
 Vue.use(Radio);
 Vue.use(Menu);
+Vue.use(Auth);
+Vue.component("Authorized", Authorized);
 
 // Vue.use(Anted);
 new Vue({
