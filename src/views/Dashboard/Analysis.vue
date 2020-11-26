@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import request from "../../utils/request";
 import Chart from "../../components/Chart";
 export default {
   data() {
@@ -21,7 +21,11 @@ export default {
   },
   methods: {
     getChartData() {
-      axios.get("/api/dashboard/chart").then(response => {
+      request({
+        url: "/api/dashboard/chart",
+        methods: "get",
+        params: { ID: 12345 }
+      }).then(response => {
         this.chartOption = {
           title: {
             text: "ECharts 入门示例"
