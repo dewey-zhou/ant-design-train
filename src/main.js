@@ -1,7 +1,7 @@
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
-import store from "./store";
+import store from "./store/index";
 // import Anted from "ant-design-vue";
 // import Button from "ant-design-vue/lib/button";
 import {
