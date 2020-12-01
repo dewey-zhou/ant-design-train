@@ -1,5 +1,7 @@
 <template>
   <div>
+    {{ $t("message")["app.dashboard.analysis.timeLabel"] }} :
+    <a-date-picker></a-date-picker>
     <Chart :option="chartOption" style="height: 400px" />
   </div>
 </template>
@@ -23,7 +25,7 @@ export default {
     getChartData() {
       request({
         url: "/api/dashboard/chart",
-        methods: "get",
+        method: "get",
         params: { ID: 12345 }
       }).then(response => {
         this.chartOption = {
